@@ -17,3 +17,4 @@
 - Make it a complete application so that it is usable
 - All features of the tech stack should be used
 - Make it responsive
+- Fork this repository and submit your implementation
