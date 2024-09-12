@@ -5,6 +5,7 @@
 - Tailwind CSS
 - React
 - RecoilJS
+- Typescript
 
 ## Build a TODO app
 ![image](https://github.com/user-attachments/assets/120c1421-2cc9-41db-8a8b-908603835a8e)
