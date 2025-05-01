@@ -1,6 +1,7 @@
 /// <reference types='vitest' />
-import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { resolve } from 'path';
+import { defineConfig } from 'vite';
 
 export default defineConfig(() => ({
   root: __dirname,
@@ -36,5 +37,16 @@ export default defineConfig(() => ({
       reportsDirectory: './test-output/vitest/coverage',
       provider: 'v8' as const,
     },
+  },
+  resolve: {
+    alias: [
+      {
+        find: '@my-todos/shared-types',
+        replacement: resolve(
+          __dirname,
+          './../../libs/shared-types/src/index.ts'
+        ),
+      },
+    ],
   },
 }));
