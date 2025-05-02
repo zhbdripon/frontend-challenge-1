@@ -14,6 +14,7 @@ export type TodoStatus = (typeof TodoStatusOptions)[keyof typeof TodoStatusOptio
 export type TodoPriority = (typeof TodoPriorityOptions)[keyof typeof TodoPriorityOptions];
 
 export interface Todo {
+  id: string;
   title: string;
   status: TodoStatus;
   priority?: TodoPriority;
