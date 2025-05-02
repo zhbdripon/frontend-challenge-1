@@ -1,6 +1,9 @@
 import { useRecoilState } from 'recoil'
 import { todoState } from '../atoms'
-import { Todo, TodoStatusOptions } from '@my-todos/shared-types'
+import { Todo } from '@my-todos/shared-types'
+
+import { saveTodosToLocalStorage } from '../utils'
+import { useEffect } from 'react';
 
 interface useTodosReturn {
     todos: Todo[];
@@ -11,6 +14,10 @@ interface useTodosReturn {
 
 export function useTodos(): useTodosReturn {
     const [todos, setTodos] = useRecoilState(todoState)
+
+    useEffect(() => {
+        saveTodosToLocalStorage(todos);
+    }, [todos])
 
     const addTodo = (newTodo: Todo) => {
         setTodos([...todos, newTodo]);

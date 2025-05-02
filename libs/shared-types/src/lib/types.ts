@@ -16,6 +16,7 @@ export type TodoPriority = (typeof TodoPriorityOptions)[keyof typeof TodoPriorit
 export interface Todo {
   id: string;
   title: string;
-  status: TodoStatus;
+  status?: TodoStatus;
   priority?: TodoPriority;
+  createdAt?: Date;
 }
