@@ -1,7 +1,7 @@
 export enum TodoStatusOptions {
-  COMPLETED = 'completed',
-  PENDING = 'pending',
-  IN_PROGRESS = 'in-progress',
+  COMPLETED = 'Completed',
+  PENDING = 'Pending',
+  IN_PROGRESS = 'In-progress',
 }
 
 export enum TodoPriorityOptions {
@@ -10,8 +10,10 @@ export enum TodoPriorityOptions {
   HIGH = 'high',
 }
 
-export type TodoStatus = (typeof TodoStatusOptions)[keyof typeof TodoStatusOptions];
-export type TodoPriority = (typeof TodoPriorityOptions)[keyof typeof TodoPriorityOptions];
+export type TodoStatus =
+  (typeof TodoStatusOptions)[keyof typeof TodoStatusOptions];
+export type TodoPriority =
+  (typeof TodoPriorityOptions)[keyof typeof TodoPriorityOptions];
 
 export interface Todo {
   id: string;
@@ -19,4 +21,10 @@ export interface Todo {
   status?: TodoStatus;
   priority?: TodoPriority;
   createdAt?: Date;
+}
+
+export interface Filters {
+  [TodoStatusOptions.COMPLETED]: boolean;
+  [TodoStatusOptions.PENDING]: boolean;
+  [TodoStatusOptions.IN_PROGRESS]: boolean;
 }
