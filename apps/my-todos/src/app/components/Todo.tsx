@@ -1,7 +1,7 @@
 import { Todo as TodoType } from '@my-todos/shared-types';
+import { timeAgo } from '../utils';
 import TodoPrioritySelect from './TodoPrioritySelect';
 import TodoStatusSelect from './TodoStatusSelect';
-import { timeAgo } from '../utils';
 
 const Todo = ({ todo }: { todo: TodoType }) => {
   return (
@@ -9,7 +9,7 @@ const Todo = ({ todo }: { todo: TodoType }) => {
       <div className="">
         <label className="text-green-800 text-xl">{todo.title}</label>
         <div className="flex flex-row">
-          <TodoPrioritySelect todo={todo} />
+          <TodoPrioritySelect key={todo.id} todo={todo} />
           {todo.createdAt && (
             <span className="text-gray-500 text-sm ml-2">
               {timeAgo(todo.createdAt)}
@@ -17,7 +17,7 @@ const Todo = ({ todo }: { todo: TodoType }) => {
           )}
         </div>
       </div>
-      <TodoStatusSelect todo={todo} />
+      <TodoStatusSelect key={todo.id} todo={todo} />
     </div>
   );
 };

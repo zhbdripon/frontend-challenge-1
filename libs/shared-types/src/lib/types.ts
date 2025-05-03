@@ -5,9 +5,9 @@ export enum TodoStatusOptions {
 }
 
 export enum TodoPriorityOptions {
-  LOW = 'low',
-  MEDIUM = 'medium',
-  HIGH = 'high',
+  LOW = 'Low',
+  MEDIUM = 'Medium',
+  HIGH = 'High',
 }
 
 export type TodoStatus =
@@ -18,13 +18,25 @@ export type TodoPriority =
 export interface Todo {
   id: string;
   title: string;
-  status?: TodoStatus;
-  priority?: TodoPriority;
-  createdAt?: Date;
+  status: TodoStatus;
+  priority: TodoPriority;
+  createdAt: Date;
 }
 
 export interface Filters {
   [TodoStatusOptions.COMPLETED]: boolean;
   [TodoStatusOptions.PENDING]: boolean;
   [TodoStatusOptions.IN_PROGRESS]: boolean;
+}
+
+export const enum SortFieldEnum {
+  TITLE = 'title',
+  STATUS = 'status',
+  CREATED_AT = 'createdAt',
+  PRIORITY = 'priority',
+}
+
+export interface SortOptions {
+  field: SortFieldEnum;
+  order: 'asc' | 'desc';
 }

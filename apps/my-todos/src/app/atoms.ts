@@ -1,4 +1,9 @@
-import { Filters, Todo, TodoStatusOptions } from '@my-todos/shared-types';
+import {
+  Filters,
+  SortFieldEnum,
+  Todo,
+  TodoStatusOptions,
+} from '@my-todos/shared-types';
 import { atom } from 'recoil';
 import { getTodosFromLocalStorage } from './utils';
 
@@ -14,4 +19,12 @@ export const filterState = atom({
     [TodoStatusOptions.IN_PROGRESS]: true,
     [TodoStatusOptions.PENDING]: true,
   } as Filters,
+});
+
+export const sortState = atom({
+  key: 'sortState',
+  default: {
+    field: 'none' as SortFieldEnum,
+    order: 'asc' as 'asc' | 'desc',
+  },
 });
