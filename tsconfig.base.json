@@ -21,7 +21,8 @@
     "allowImportingTsExtensions": true,
     "noEmit": true,
     "paths": {
-      "@my-todos/shared-types": ["libs/shared-types/src/index.ts"]
+      "@my-todos/shared-types": ["libs/shared-types/src/index.ts"],
+      "@my-todos/shared-ui": ["libs/shared-ui/src/index.ts"]
     }
   }
 }

@@ -47,6 +47,13 @@ export default defineConfig(() => ({
           './../../libs/shared-types/src/index.ts'
         ),
       },
+      {
+        find: '@my-todos/shared-ui',
+        replacement: resolve(
+          __dirname,
+          './../../libs/shared-ui/src/index.ts'
+        ),
+      },
     ],
   },
 }));
