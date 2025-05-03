@@ -1,10 +1,11 @@
-import { Todo } from '@my-todos/shared-types';
+import { SortFieldEnum, SortOptions, Todo } from '@my-todos/shared-types';
 import { useRecoilState } from 'recoil';
-import { filterState, todoState } from '../atoms';
+import { filterState, sortState, todoState } from '../atoms';
 
 export function useFilterTodos(): { filteredTodos: Todo[] } {
   const [todos] = useRecoilState<Todo[]>(todoState);
   const [filters] = useRecoilState(filterState);
+  const [sort] = useRecoilState<SortOptions>(sortState);
 
   const filteredTodos = todos.filter((todo: Todo) => {
     if (filters && todo.status) {
@@ -13,5 +14,34 @@ export function useFilterTodos(): { filteredTodos: Todo[] } {
     return true;
   });
 
-  return { filteredTodos };
+  const sortedTodos = filteredTodos.sort((a, b) => {
+    if (sort) {
+      const field = sort.field;
+      const order = sort.order === 'asc' ? 1 : -1;
+
+      if (field === SortFieldEnum.PRIORITY) {
+        const priorityOrder = {
+          Low: 1,
+          Medium: 2,
+          High: 3,
+        };
+        return (priorityOrder[a.priority] - priorityOrder[b.priority]) * order;
+      }
+
+      if (field === SortFieldEnum.STATUS) {
+        const statusOrder = {
+          Pending: 1,
+          'In-progress': 2,
+          Completed: 3,
+        };
+        return (statusOrder[a.status] - statusOrder[b.status]) * order;
+      }
+
+      if (a[field] < b[field]) return -1 * order;
+      if (a[field] > b[field]) return 1 * order;
+    }
+    return 0;
+  });
+
+  return { filteredTodos: sortedTodos };
 }
