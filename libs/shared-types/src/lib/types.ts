@@ -30,7 +30,7 @@ export interface Filters {
   [TodoStatusOptions.IN_PROGRESS]: boolean;
 }
 
-export const enum SortFieldEnum {
+export enum SortFieldEnum {
   TITLE = 'title',
   STATUS = 'status',
   CREATED_AT = 'createdAt',

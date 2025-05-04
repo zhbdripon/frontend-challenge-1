@@ -44,11 +44,12 @@ const TodoSort = () => {
         className="p-2 rounded outline-none"
         defaultValue={SortFieldEnum.CREATED_AT}
       >
-        {Object.keys(getDefaultTodoFromTitle('')).map((option) => {
-          if (option === 'id') return null;
+        {Object.values(SortFieldEnum).map((option) => {
           return (
             <option key={option} value={option}>
-              {capitalizeFirstLetter(option)}
+              {option === SortFieldEnum.CREATED_AT
+                ? 'Created'
+                : capitalizeFirstLetter(option)}
             </option>
           );
         })}

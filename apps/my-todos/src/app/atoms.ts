@@ -24,7 +24,7 @@ export const filterState = atom({
 export const sortState = atom({
   key: 'sortState',
   default: {
-    field: 'none' as SortFieldEnum,
-    order: 'asc' as 'asc' | 'desc',
+    field: SortFieldEnum.CREATED_AT,
+    order: 'desc' as 'asc' | 'desc',
   },
 });
