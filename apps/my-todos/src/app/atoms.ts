@@ -6,10 +6,14 @@ import {
 } from '@my-todos/shared-types';
 import { atom } from 'recoil';
 import { getTodosFromLocalStorage } from './utils';
+import todos from './data.json';
+
+const todosFromLocalStorage = getTodosFromLocalStorage();
+const initialTodos = todosFromLocalStorage.length > 0 ? todosFromLocalStorage : todos;
 
 export const todoState = atom({
   key: 'todoState',
-  default: getTodosFromLocalStorage() as Todo[],
+  default: initialTodos as Todo[],
 });
 
 export const filterState = atom({
