@@ -23,13 +23,12 @@
 ## Implementation
 
 Below are the previews of the application:
-
-<p align="center">
-  <img src="apps/my-todos/public/preview1.png" alt="Preview 1" width="400" />
-  <img src="apps/my-todos/public/preview2.jpg" alt="Preview 2" width="400" />
+<p style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+  <img src="apps/my-todos/public/preview1.png" alt="Preview 1" width="600" />
+  <img src="apps/my-todos/public/preview2.jpg" alt="Preview 2" width="200" />
 </p>
 
-## Production Link
+## Live Link
 [My Todos App](https://my-todos-cyan.vercel.app/)
 
 ## Requirements
