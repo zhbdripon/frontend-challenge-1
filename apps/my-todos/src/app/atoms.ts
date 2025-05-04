@@ -9,7 +9,8 @@ import { getTodosFromLocalStorage } from './utils';
 import todos from './data.json';
 
 const todosFromLocalStorage = getTodosFromLocalStorage();
-const initialTodos = todosFromLocalStorage.length > 0 ? todosFromLocalStorage : todos;
+const initialTodos =
+  todosFromLocalStorage.length > 0 ? todosFromLocalStorage : todos;
 
 export const todoState = atom({
   key: 'todoState',
