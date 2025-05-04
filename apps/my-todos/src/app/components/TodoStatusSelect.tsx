@@ -34,7 +34,7 @@ const TodoStatusSelect = ({ todo }: { todo: Todo }) => {
         id="status-select"
         value={status}
         onChange={handleChange}
-        className={`pb-1 border rounded outline-none text-white ${getStatusColor(status)}`}
+        className={`border rounded outline-none text-white ${getStatusColor(status)} `}
       >
         {Object.values(TodoStatusOptions).map((option) => (
           <option key={option} value={option}>

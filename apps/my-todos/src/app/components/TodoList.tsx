@@ -43,6 +43,7 @@ const TodoList = () => {
       )}
       {filteredTodos.map((todo, index) => (
         <div
+          className='hover:bg-gray-100 cursor-pointer hover:rounded-md'
           key={todo.status + index + todo.priority}
           onClick={(e: React.MouseEvent<HTMLDivElement>) => {
             handleTodoClick(e, todo);
