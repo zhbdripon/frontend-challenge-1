@@ -15,13 +15,14 @@ export function capitalizeFirstLetter(str: string): string {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-export function getDefaultTodoFromTitle(title: string): Todo {
+export function getDefaultTodoFromTitle(title: string, notes?: string): Todo {
   return {
     id: generateUniqueId(),
     title,
     status: TodoStatusOptions.PENDING,
     priority: TodoPriorityOptions.MEDIUM,
     createdAt: new Date(),
+    notes: notes || '',
   };
 }
 

@@ -21,6 +21,7 @@ export interface Todo {
   status: TodoStatus;
   priority: TodoPriority;
   createdAt: Date;
+  notes?: string;
 }
 
 export interface Filters {

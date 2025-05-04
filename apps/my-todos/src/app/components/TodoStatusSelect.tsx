@@ -11,6 +11,7 @@ const TodoStatusSelect = ({ todo }: { todo: Todo }) => {
   );
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    event.stopPropagation();
     setStatus(event.target.value as TodoStatusOptions);
     updateTodo(todo.id, { status: event.target.value as TodoStatusOptions });
   };

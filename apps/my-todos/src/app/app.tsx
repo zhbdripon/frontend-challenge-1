@@ -2,7 +2,6 @@ import Header from './components/Header';
 import TodoAdd from './components/TodoAdd';
 import TodoControls from './components/TodoControls';
 import TodoList from './components/TodoList';
-
 export function App() {
   return (
     <div className="h-screen">
