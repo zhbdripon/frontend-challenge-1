@@ -19,3 +19,34 @@
 - All features of the tech stack should be used
 - Make it responsive
 - Fork this repository and submit your implementation
+
+## Implementation
+
+Below are the previews of the application:
+
+<p align="center">
+  <img src="apps/my-todos/public/preview1.png" alt="Preview 1" width="400" />
+  <img src="apps/my-todos/public/preview2.jpg" alt="Preview 2" width="400" />
+</p>
+
+## Production Link
+[My Todos App](https://my-todos-cyan.vercel.app/)
+
+## Requirements
+- Node.js v18
+- Nx version 20
+
+## Installation Steps
+1. Install Node.js v18 from [Node.js official website](https://nodejs.org/).
+2. Install Nx globally using the following command:
+   ```bash
+   npm install -g nx
+   ```
+3. Install project dependencies:
+   ```bash
+   npm install
+   ```
+4. Run the project:
+   ```bash
+   npx nx serve my-todos
+   ```
