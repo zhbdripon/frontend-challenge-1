@@ -29,7 +29,7 @@ const StatusFilter = () => {
             type="checkbox"
             checked={filters[status]}
             value={status}
-            className="form-checkbox"
+            className="form-checkbox text-sm"
             onChange={handleStatusFilterChange}
           />
           <span>{status}</span>

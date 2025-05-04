@@ -55,7 +55,7 @@ export const PopConfirm = ({
 
       {visible && (
         <div
-          className={`absolute z-10 w-64 rounded-lg shadow-lg bg-white border border-gray-200 p-4 transform ${getPositionClasses()}`}
+          className={`absolute z-10 w-64 rounded-lg shadow-lg bg-white border-gray-200 p-4 transform ${getPositionClasses()}`}
         >
           <p className="text-gray-700 mb-4">{title}</p>
           <div className="flex justify-end gap-2">
@@ -75,7 +75,7 @@ export const PopConfirm = ({
                 setVisible(false);
               }}
             >
-              Confirm
+              Yes
             </button>
           </div>
         </div>

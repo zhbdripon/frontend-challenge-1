@@ -5,38 +5,31 @@ import { capitalizeFirstLetter } from '../utils';
 import { useTodos } from '../hooks/useTodos';
 
 const TodoPrioritySelect = ({ todo }: { todo: Todo }) => {
-    const {updateTodo} = useTodos();
+  const { updateTodo } = useTodos();
   const [priority, setPriority] = useState<TodoPriorityOptions>(
     todo.priority || TodoPriorityOptions.LOW
   );
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setPriority(event.target.value as TodoPriorityOptions);
-    updateTodo(todo.id, { priority: event.target.value as TodoPriorityOptions });
+    updateTodo(todo.id, {
+      priority: event.target.value as TodoPriorityOptions,
+    });
   };
 
-  const getPriorityColor = (priority: TodoPriorityOptions) => {
-    switch (priority) {
-      case TodoPriorityOptions.HIGH:
-        return 'border-red-500 text-red-500';
-      case TodoPriorityOptions.MEDIUM:
-        return 'border-yellow-500 text-yellow-500';
-      case TodoPriorityOptions.LOW:
-        return 'border-green-500 text-green-500';
-      default:
-        return 'border-yellow-500 text-yellow-500';
-    }
+  const priorityBgColor: Record<TodoPriorityOptions, string> = {
+    [TodoPriorityOptions.HIGH]: 'text-red-500',
+    [TodoPriorityOptions.MEDIUM]: 'text-yellow-500',
+    [TodoPriorityOptions.LOW]: 'text-green-500',
   };
 
   return (
-    <div className={` rounded ${getPriorityColor(priority)}`}>
+    <div className={` rounded ${priorityBgColor[priority]}`}>
       <select
         id="priority-select"
         value={priority}
         onChange={handleChange}
-        className={`p-0 border-0 rounded  text-sm outline-none ${getPriorityColor(
-          priority
-        )}`}
+        className={`p-0 border-0 rounded  text-sm outline-none  `}
       >
         {Object.values(TodoPriorityOptions).map((option) => (
           <option key={option} value={option}>

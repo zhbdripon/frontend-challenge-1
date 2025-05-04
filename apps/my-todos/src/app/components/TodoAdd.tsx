@@ -36,11 +36,11 @@ const TodoAdd = () => {
           }
           type="text"
           placeholder="Add a new todo"
-          className="border-y-1 border-gray-300 p-2 focus:outline-none w-todo-add-input"
+          className="border-1 border-gray-300 p-2 focus:outline-none w-todo-add-input rounded-md mx-1"
           onKeyDown={onTodoInputKeyDown}
         />
         <button
-          className="bg-blue-500 text-white p-2 rounded ml-2"
+          className="bg-blue-500 text-white p-2 rounded"
           onClick={() => {
             if (title) {
               addTodo(getDefaultTodoFromTitle(title, note));
@@ -59,8 +59,7 @@ const TodoAdd = () => {
           }
           placeholder="Add an optional note..."
           onInput={handleInput}
-          className="resize-none overflow-hidden p-2 border-2 rounded w-full outline-gray-300 text-sm"
-          style={{ height: 'auto' }}
+          className="resize-none overflow-hidden p-2 border-2 rounded-md w-full outline-gray-300 text-sm"
         ></textarea>
       </div>
     </div>

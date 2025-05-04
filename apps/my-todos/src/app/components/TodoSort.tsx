@@ -7,7 +7,7 @@ import {
 } from 'react-icons/fc';
 import { useRecoilState } from 'recoil';
 import { sortState } from '../atoms';
-import { capitalizeFirstLetter, getDefaultTodoFromTitle } from '../utils';
+import { capitalizeFirstLetter } from '../utils';
 
 const TodoSort = () => {
   const [sort, setSort] = useRecoilState<SortOptions>(sortState);
@@ -46,7 +46,7 @@ const TodoSort = () => {
       >
         {Object.values(SortFieldEnum).map((option) => {
           return (
-            <option key={option} value={option}>
+            <option key={option} value={option} >
               {option === SortFieldEnum.CREATED_AT
                 ? 'Created'
                 : capitalizeFirstLetter(option)}

@@ -26,7 +26,7 @@ const TodoList = () => {
   };
 
   return (
-    <>
+    <div className='max-h-80 overflow-y-scroll'>
       {selectedTodo && (
         <Modal
           title={selectedTodo.title}
@@ -41,6 +41,7 @@ const TodoList = () => {
       {filteredTodos.map((todo, index) => (
         <div
           key={todo.status + index + todo.priority}
+
           onClick={(e: React.MouseEvent<HTMLDivElement>) => {
             handleTodoClick(e, todo);
           }}
@@ -48,7 +49,7 @@ const TodoList = () => {
           <Todo todo={todo} />
         </div>
       ))}
-    </>
+    </div>
   );
 };
 
