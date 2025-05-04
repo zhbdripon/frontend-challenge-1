@@ -1,9 +1,9 @@
-import { useFilterTodos } from '../hooks/useFilterTodos';
 import { Todo as TodoType } from '@my-todos/shared-types';
-import Todo from './Todo';
 import { Modal } from '@my-todos/shared-ui';
-import TodoDetails from './TodoDetails';
 import { useState } from 'react';
+import { useFilterTodos } from '../hooks/useFilterTodos';
+import Todo from './Todo';
+import TodoDetails from './TodoDetails';
 
 const TodoList = () => {
   const { filteredTodos } = useFilterTodos();
@@ -21,12 +21,15 @@ const TodoList = () => {
       event.stopPropagation();
       setSelectedTodo(todo);
       setIsModalOpen(true);
-      console.log('Empty space clicked', todo);
     }
   };
 
   return (
-    <div className='max-h-80 overflow-y-scroll'>
+    <div
+      className={`md:max-h-80 overflow-y-scroll ${
+        filteredTodos.length && 'min-h-20 py-5'
+      } `}
+    >
       {selectedTodo && (
         <Modal
           title={selectedTodo.title}
@@ -41,7 +44,6 @@ const TodoList = () => {
       {filteredTodos.map((todo, index) => (
         <div
           key={todo.status + index + todo.priority}
-
           onClick={(e: React.MouseEvent<HTMLDivElement>) => {
             handleTodoClick(e, todo);
           }}

@@ -1,6 +1,6 @@
-import { useState, useRef, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-type Placement = 'top' | 'bottom' | 'left' | 'right' | 'bottom-left';
+type Placement = 'top' | 'bottom' | 'left' | 'right' | 'mid-left';
 
 interface PopConfirmProps {
   title: string;
@@ -23,7 +23,10 @@ export const PopConfirm = ({
   // Close on outside click
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (wrapperRef.current && !wrapperRef.current.contains(event.target as Node)) {
+      if (
+        wrapperRef.current &&
+        !wrapperRef.current.contains(event.target as Node)
+      ) {
         setVisible(false);
       }
     };
@@ -42,8 +45,8 @@ export const PopConfirm = ({
         return 'right-full mr-2 top-1/2 -translate-y-1/2';
       case 'right':
         return 'left-full ml-2 top-1/2 -translate-y-1/2';
-      case 'bottom-left':
-        return 'top-1/3 mt-2 right-1/2';
+      case 'mid-left':
+        return 'top-1/2 right-full transform -translate-y-1/2';
       default:
         return '';
     }
@@ -57,7 +60,7 @@ export const PopConfirm = ({
 
       {visible && (
         <div
-          className={`absolute z-10 w-64 rounded-lg shadow-lg bg-white border-1 p-4 transform ${getPositionClasses()}`}
+          className={`absolute z-10 w-64 rounded-lg shadow-lg bg-white border-1 px-4 py-2 transform ${getPositionClasses()}`}
         >
           <p className="text-gray-700 mb-4">{title}</p>
           <div className="flex justify-end gap-2">
