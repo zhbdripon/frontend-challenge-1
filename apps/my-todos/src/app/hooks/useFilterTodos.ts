@@ -2,7 +2,13 @@ import { SortFieldEnum, SortOptions, Todo } from '@my-todos/shared-types';
 import { useRecoilState } from 'recoil';
 import { filterState, sortState, todoState } from '../atoms';
 
-export function useFilterTodos(): { filteredTodos: Todo[] } {
+interface UseFilterTodosReturn {
+  filteredTodos: Todo[];
+  count: number;
+}
+ 
+
+export function useFilterTodos(): UseFilterTodosReturn {
   const [todos] = useRecoilState<Todo[]>(todoState);
   const [filters] = useRecoilState(filterState);
   const [sort] = useRecoilState<SortOptions>(sortState);
@@ -43,5 +49,5 @@ export function useFilterTodos(): { filteredTodos: Todo[] } {
     return 0;
   });
 
-  return { filteredTodos: sortedTodos };
+  return { filteredTodos: sortedTodos, count: filteredTodos.length };
 }

@@ -29,7 +29,7 @@ const Todo = ({ todo }: { todo: TodoType }) => {
       <div className="flex flex-row [&>*]:mx-1">
         <TodoStatusSelect key={todo.id} todo={todo} />
         <PopConfirm
-          title="Are you sure?"
+          title="Delete the todo?"
           onConfirm={() => {
             removeTodo(todo.id);
             toast(`Todo ${todo.title} deleted!`, { icon: '✅' });
