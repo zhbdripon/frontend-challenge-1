@@ -22,7 +22,7 @@ const StatusFilter = () => {
   return (
     <div className="flex flex-row items-center">
       <FcFilledFilter className="mr-2" />
-      <span className="text-gray-500 text-sm mr-2 pb-1">Status:</span>
+      <span className="text-gray-500 text-xs md:text-sm mr-2 pb-1">Status:</span>
       {Object.values(TodoStatusOptions).map((status) => (
         <label key={status} className="flex space-x-2 mr-2">
           <input

@@ -26,9 +26,9 @@ export const SplashScreen = () => {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="text-5xl font-bold text-white flex flex-row items-center justify-center">
+          <div className="text-5xl font-bold text-white flex flex-col md:flex-row items-center justify-center">
             <LuListTodo />
-            <span className="ml-4">Welcome to Todos</span>
+            <span className="md:ml-4 text-center">Welcome to Todos</span>
             
           </div>
         </motion.div>

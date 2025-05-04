@@ -14,7 +14,7 @@ const Todo = ({ todo }: { todo: TodoType }) => {
   return (
     <div className=" border-b-2 m-1 rounded flex justify-between items-center">
       <div >
-        <label className="text-green-600 ml-1 text-lg">{todo.title}</label>
+        <label className="text-green-600 ml-1 text-md md:text-lg">{todo.title}</label>
         <div className="flex flex-row">
           <TodoPrioritySelect key={todo.id} todo={todo} />
           {todo.createdAt && (
@@ -32,7 +32,7 @@ const Todo = ({ todo }: { todo: TodoType }) => {
             removeTodo(todo.id);
             toast(`Todo ${todo.title} deleted!`, { icon: '✅' });
           }}
-          placement="left"
+          placement="bottom-left"
         >
           <TiDeleteOutline size={24} color="red" className="cursor-pointer" />
         </PopConfirm>

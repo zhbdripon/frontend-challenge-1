@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 
-type Placement = 'top' | 'bottom' | 'left' | 'right';
+type Placement = 'top' | 'bottom' | 'left' | 'right' | 'bottom-left';
 
 interface PopConfirmProps {
   title: string;
@@ -42,6 +42,8 @@ export const PopConfirm = ({
         return 'right-full mr-2 top-1/2 -translate-y-1/2';
       case 'right':
         return 'left-full ml-2 top-1/2 -translate-y-1/2';
+      case 'bottom-left':
+        return 'top-1/3 mt-2 right-1/2';
       default:
         return '';
     }
@@ -55,7 +57,7 @@ export const PopConfirm = ({
 
       {visible && (
         <div
-          className={`absolute z-10 w-64 rounded-lg shadow-lg bg-white border-gray-200 p-4 transform ${getPositionClasses()}`}
+          className={`absolute z-10 w-64 rounded-lg shadow-lg bg-white border-1 p-4 transform ${getPositionClasses()}`}
         >
           <p className="text-gray-700 mb-4">{title}</p>
           <div className="flex justify-end gap-2">
