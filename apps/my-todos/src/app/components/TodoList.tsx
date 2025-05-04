@@ -6,9 +6,13 @@ import Todo from './Todo';
 import TodoDetails from './TodoDetails';
 
 const TodoList = () => {
-  const { filteredTodos } = useFilterTodos();
+  const { filteredTodos, count } = useFilterTodos();
   const [selectedTodo, setSelectedTodo] = useState<TodoType | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const todoCountPrompt =
+    count > 0
+      ? `Total ${count} todo(s) with the given filters`
+      : 'No todos with the given filters';
 
   const handleTodoClick = (
     event: React.MouseEvent<HTMLDivElement>,
@@ -43,7 +47,7 @@ const TodoList = () => {
       )}
       {filteredTodos.map((todo, index) => (
         <div
-          className='hover:bg-gray-100 cursor-pointer hover:rounded-md'
+          className="hover:bg-gray-100 cursor-pointer hover:rounded-md"
           key={todo.status + index + todo.priority}
           onClick={(e: React.MouseEvent<HTMLDivElement>) => {
             handleTodoClick(e, todo);
@@ -52,6 +56,7 @@ const TodoList = () => {
           <Todo todo={todo} />
         </div>
       ))}
+      <label className="ml-2 text-xs">{todoCountPrompt}</label>
     </div>
   );
 };
