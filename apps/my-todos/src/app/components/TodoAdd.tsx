@@ -67,7 +67,7 @@ const TodoAdd = () => {
           }
           placeholder="Add an optional note..."
           onInput={handleInput}
-          className="resize-none overflow-hidden p-2 border-2 rounded-md w-full outline-gray-300 text-sm"
+          className="max-h-16 overflow-hidden p-2 border-2 rounded-md w-full outline-gray-300 text-sm"
         ></textarea>
       </div>
     </div>

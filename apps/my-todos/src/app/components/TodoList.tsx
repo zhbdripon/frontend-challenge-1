@@ -30,7 +30,7 @@ const TodoList = () => {
 
   return (
     <div
-      className={`md:max-h-80 overflow-y-scroll ${
+      className={`max-h-96 md:max-h-80 overflow-y-scroll ${
         filteredTodos.length && 'min-h-20 py-5'
       } `}
     >
