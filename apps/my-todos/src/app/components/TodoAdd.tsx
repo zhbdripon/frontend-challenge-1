@@ -1,17 +1,24 @@
-import React, {useState} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { FcPlus } from 'react-icons/fc';
 import { useTodos } from '../hooks/useTodos';
 import { getDefaultTodoFromTitle } from '../utils';
 
 const TodoAdd = () => {
-  const [title, setTitle] = React.useState('');
-  const [note, setNote] = React.useState('');
+  const [title, setTitle] = useState('');
+  const [note, setNote] = useState('');
+  const titleInputRef = useRef<HTMLInputElement>(null);
   const { addTodo } = useTodos();
+
+  useEffect(() => {
+    if (titleInputRef && titleInputRef.current) {
+      titleInputRef.current.focus();
+    }
+  }, []);
 
   const resetForm = () => {
     setTitle('');
     setNote('');
-  }
+  };
 
   const onTodoInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
@@ -38,6 +45,7 @@ const TodoAdd = () => {
           placeholder="Add a new todo"
           className="border-1 border-gray-300 p-2 focus:outline-none w-todo-add-input rounded-md mx-1"
           onKeyDown={onTodoInputKeyDown}
+          ref={titleInputRef}
         />
         <button
           className="bg-blue-500 text-white p-2 rounded"
@@ -51,7 +59,7 @@ const TodoAdd = () => {
           Add Item
         </button>
       </div>
-      <div className='px-2'>
+      <div className="px-2">
         <textarea
           value={note}
           onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
