@@ -49,3 +49,12 @@ Below are the previews of the application:
    ```bash
    npx nx serve my-todos
    ```
+
+## Running with Docker
+
+1. Install Docker from [Docker official website](https://www.docker.com/).
+2. Navigate to the project directory.
+3. Run the following command to start the application:
+   ```bash
+   docker-compose up
+   ```
