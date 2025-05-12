@@ -54,7 +54,12 @@ Below are the previews of the application:
 
 1. Install Docker from [Docker official website](https://www.docker.com/).
 2. Navigate to the project directory.
-3. Run the following command to start the application:
+3. Run the following command if you are using the old docker-compose:
    ```bash
    docker-compose up
    ```
+   or if you using docker compose plugin:
+   ```bash
+   docker compose up
+   ```
+   Please find out how your version of docker run the compose file if the above command doesn't work
