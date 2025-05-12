@@ -1,11 +1,12 @@
-import { SortFieldEnum, SortOptions } from '@my-todos/shared-types';
 import React from 'react';
+import { SortFieldEnum, SortOptions } from '@my-todos/shared-types';
 import {
   FcGenericSortingAsc,
   FcNumericalSorting12,
   FcNumericalSorting21,
 } from 'react-icons/fc';
 import { useRecoilState } from 'recoil';
+
 import { sortState } from '../atoms';
 import { capitalizeFirstLetter } from '../utils';
 
@@ -41,12 +42,12 @@ const TodoSort = () => {
       <select
         id="sort-select"
         onChange={handleSortChange}
-        className="p-2 rounded outline-none"
+        className="rounded outline-none bg-white"
         defaultValue={SortFieldEnum.CREATED_AT}
       >
         {Object.values(SortFieldEnum).map((option) => {
           return (
-            <option key={option} value={option} >
+            <option key={option} value={option}>
               {option === SortFieldEnum.CREATED_AT
                 ? 'Created'
                 : capitalizeFirstLetter(option)}

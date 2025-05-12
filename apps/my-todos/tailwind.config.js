@@ -22,6 +22,30 @@ module.exports = {
       spacing: {
         'todo-add-input': 'calc(100% - 7.12rem)',
       },
+      fontSize: {
+        xxs: '0.65rem'
+      },
+      colors: {
+        crimson: {
+          100: '#F8D7DA',
+          500: '#DC143C',
+        },
+        amber: {
+          100: '#FFF3CD',
+          500: '#FFBF00',
+        },
+        teal: {
+          100: '#D1FAF9',
+          500: '#008080',
+        },
+      },
+      height: {
+        'list-area': 'calc(100vh - 6.5rem)',
+      },
+      maxHeight: {
+        'list-container': 'calc(100% - 6.0rem)',
+      },
+
     },
   },
   plugins: [],

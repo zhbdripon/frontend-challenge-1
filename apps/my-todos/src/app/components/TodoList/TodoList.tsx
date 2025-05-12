@@ -1,18 +1,20 @@
+import { useRecoilState } from 'recoil';
 import { Todo as TodoType } from '@my-todos/shared-types';
 import { Modal } from '@my-todos/shared-ui';
-import { useState } from 'react';
-import { useFilterTodos } from '../hooks/useFilterTodos';
-import Todo from './Todo';
-import TodoDetails from './TodoDetails';
+
+import { selectedTodoState, showTodoFormState } from '../../atoms';
+import { useFilterTodos } from '../../hooks/useFilterTodos';
+import { useScreenSize } from '../../hooks/useScreenSize';
+import Todo from '../Todo';
+import TodoForm from '../TodoForm';
 
 const TodoList = () => {
-  const { filteredTodos, count } = useFilterTodos();
-  const [selectedTodo, setSelectedTodo] = useState<TodoType | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const todoCountPrompt =
-    count > 0
-      ? `Total ${count} todo(s) with the given filters`
-      : 'No todos with the given filters';
+  const { filteredTodos } = useFilterTodos();
+  const { width } = useScreenSize();
+  const [selectedTodo, setSelectedTodo] = useRecoilState<TodoType | null>(
+    selectedTodoState
+  );
+  const [isModalOpen, setIsModalOpen] = useRecoilState(showTodoFormState);
 
   const handleTodoClick = (
     event: React.MouseEvent<HTMLDivElement>,
@@ -29,25 +31,21 @@ const TodoList = () => {
   };
 
   return (
-    <div
-      className={`max-h-96 md:max-h-80 overflow-y-scroll ${
-        filteredTodos.length && 'min-h-20 py-5'
-      } `}
-    >
-      {selectedTodo && (
+    <div className="max-h-list-container overflow-y-scroll">
+      {(selectedTodo || isModalOpen) && width < 1024 && (
         <Modal
-          title={selectedTodo.title}
+          title={selectedTodo ? 'Update todo' : 'Create a new todo'}
           isOpen={isModalOpen}
           onClose={() => {
             setIsModalOpen(false);
           }}
         >
-          <TodoDetails todo={selectedTodo} />
+          <TodoForm />
         </Modal>
       )}
       {filteredTodos.map((todo, index) => (
         <div
-          className="hover:bg-gray-100 cursor-pointer hover:rounded-md"
+          className="cursor-pointer hover:rounded-md"
           key={todo.status + index + todo.priority}
           onClick={(e: React.MouseEvent<HTMLDivElement>) => {
             handleTodoClick(e, todo);
@@ -56,7 +54,6 @@ const TodoList = () => {
           <Todo todo={todo} />
         </div>
       ))}
-      <label className="ml-2 text-xs">{todoCountPrompt}</label>
     </div>
   );
 };

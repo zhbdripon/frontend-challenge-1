@@ -29,7 +29,7 @@ const TodoPrioritySelect = ({ todo }: { todo: Todo }) => {
         id="priority-select"
         value={priority}
         onChange={handleChange}
-        className={`p-0 border-0 rounded text-xs md:text-sm outline-none bg-gray-100 `}
+        className={`p-0 border-1 rounded text-xs md:text-sm`}
       >
         {Object.values(TodoPriorityOptions).map((option) => (
           <option key={option} value={option}>
