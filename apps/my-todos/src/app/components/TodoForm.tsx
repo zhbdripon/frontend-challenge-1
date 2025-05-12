@@ -14,10 +14,16 @@ import PriorityBadge from './PriorityBadge';
 import StatusBadge from './StatusBadge';
 
 const todoSchema = z.object({
-  title: z.string().min(1, 'Title is required'),
+  title: z
+    .string()
+    .min(1, 'Title is required')
+    .max(60, 'Title is too long. Max 60 characters'),
   priority: z.nativeEnum(TodoPriorityOptions),
   status: z.nativeEnum(TodoStatusOptions),
-  notes: z.string().optional(),
+  notes: z
+    .string()
+    .max(300, 'Notes is too long. Max 300 characters')
+    .optional(),
 });
 
 type TodoFormValues = z.infer<typeof todoSchema>;
@@ -41,6 +47,7 @@ const TodoForm = () => {
       status: selectedTodo?.status || TodoStatusOptions.PENDING,
       notes: selectedTodo?.notes || '',
     },
+    mode: 'onChange',
   });
 
   useEffect(() => {
@@ -145,6 +152,9 @@ const TodoForm = () => {
           className="mt-1 p-2 max-h-16 outline-none block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm"
         />
       </div>
+      {errors.notes && (
+        <p className="text-red-500 text-sm">{errors.notes.message}</p>
+      )}
 
       <div className="w-full flex justify-end [&>*]:mx-1">
         <button
