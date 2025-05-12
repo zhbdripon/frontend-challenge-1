@@ -92,10 +92,9 @@ const Popover: React.FC<PopoverProps> = ({
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [isOpen, onClose, triggerRef]);
 
-
-
   return ReactDOM.createPortal(
     <div
+      onClick={(e) => e.stopPropagation()}
       ref={popoverRef}
       style={{ ...style, display: isOpen ? 'block' : 'none' }}
     >
