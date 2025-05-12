@@ -6,9 +6,7 @@ interface Props {
 
 const ConfirmDialogue = ({ confirmationText, onConfirm, onCancel }: Props) => {
   return (
-    <div
-      className="p-4 bg-white rounded-md shadow-md border-1 border-solid"
-    >
+    <div className="p-4 bg-white rounded-md shadow-md border-1 border-solid">
       <p className="text-gray-700 mb-4 text-sm font-bold">{confirmationText}</p>
       <div className="flex justify-end gap-2">
         <button

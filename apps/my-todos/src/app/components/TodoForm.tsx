@@ -25,7 +25,7 @@ type TodoFormValues = z.infer<typeof todoSchema>;
 const TodoForm = () => {
   const { isLargeScreen } = useScreenSize();
   const [selectedTodo, setSelectedTodo] = useRecoilState(selectedTodoState);
-  const [_, setShowTodoFormModal] = useRecoilState(showTodoFormState);
+  const [, setShowTodoFormModal] = useRecoilState(showTodoFormState);
   const { addTodo, updateTodo } = useTodos();
   const {
     handleSubmit,

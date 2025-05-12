@@ -15,7 +15,7 @@ interface useTodosReturn {
 
 export function useTodos(): useTodosReturn {
   const [todos, setTodos] = useRecoilState(todoState);
-  const [_, setSelectedTodo] = useRecoilState(selectedTodoState);
+  const [, setSelectedTodo] = useRecoilState(selectedTodoState);
   const [, setShowTodoForm] = useRecoilState(showTodoFormState);
 
   useEffect(() => {

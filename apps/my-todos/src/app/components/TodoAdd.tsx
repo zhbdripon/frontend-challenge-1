@@ -4,8 +4,6 @@ import { selectedTodoState } from '../atoms';
 import { useScreenSize } from '../hooks/useScreenSize';
 import TodoForm from './TodoForm';
 
-export function TodoListContainer() {}
-
 const TodoAdd = () => {
   const [selectedTodo] = useRecoilState(selectedTodoState);
   const { isLargeScreen } = useScreenSize();
