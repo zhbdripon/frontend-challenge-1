@@ -1,18 +1,13 @@
 import Header from './components/Header';
 import TodoAdd from './components/TodoAdd';
-import TodoControls from './components/TodoControls';
-import TodoList from './components/TodoList';
+import { TodoListContainer } from './components/TodoList';
 
 export function App() {
   return (
-    <div className="h-screen font-sans text-gray-600 text-sm">
+    <div className="h-screen font-sans text-gray-600 text-sm px-2 md:px-8">
       <Header />
-      <div className="px-4 lg:px-40">
-        <div className="flex md:flex-row flex-col justify-between items-center">
-          <h1 className="font-bold text-lg">Todo List</h1>
-          <TodoControls />
-        </div>
-        <TodoList />
+      <div className=" flex flex-row ">
+        <TodoListContainer />
         <TodoAdd />
       </div>
     </div>

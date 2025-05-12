@@ -33,3 +33,13 @@ export const sortState = atom({
     order: 'desc' as 'asc' | 'desc',
   },
 });
+
+export const selectedTodoState = atom({
+  key: 'selectedTodoStatus',
+  default: null as Todo | null,
+});
+
+export const showTodoFormState = atom({
+  key: 'showTodoFormState',
+  default: false as boolean,
+});
