@@ -18,7 +18,7 @@ const PriorityBadge = ({ priority }: { priority: TodoPriorityOptions }) => {
 
   return (
     <span
-      className={`${textColor} ${bgColor} text-xs font-bold px-1 inline-flex items-center rounded-sm `}
+      className={`${textColor} ${bgColor} text-xs font-bold px-1 ml-1 inline-flex items-center rounded-sm `}
     >
       {priority}
     </span>
